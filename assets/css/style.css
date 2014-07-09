@@ -1,0 +1,15 @@
+/* Misc */
+header .logo{background: #fff!important;}
+header .logo:hover{background: #fff!important;}
+
+.no-print{display: none;}
+
+/* Logo */
+header .logo img{height: 40px;}
+.header .logo .icon{margin-right: 45px!important;}
+
+/* Home page */
+/*** Announcement ***/
+.announcement-list{list-style: none; margin-left: -40px;}
+.announcement-list li{background: #f3f4f5; cursor: pointer; margin: 5px 0; padding: 5px;}
+.announcement-list li a{display: block;}
