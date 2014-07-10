@@ -17,8 +17,26 @@ class User_M extends MY_Model
 		)
 	);
 
-	function __construct ()
-	{
+	function __construct () {
 		parent::__construct();
+	}
+	
+	
+	/*
+		Branch: MONIQUE-user_login_07/10/2014
+		Created method: user_exists
+	*/
+	
+	function user_exists($username, $password) {
+	
+		$this->db->select('*');
+		$this->db->from('user_login');
+		$this->db->where('username', $username);
+		$this->db->where('password', $password);
+		$query = $this->db->get();
+		
+		if($query->result() != NULL) return TRUE;
+		else return FALSE;
+	
 	}
 }
