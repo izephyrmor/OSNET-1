@@ -1,4 +1,75 @@
 <?php $this->load->view('templates/header'); ?>
+    
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+  <style type="text/css">
+    .ui-dialog {
+        display:none;
+    }
+
+    #new-dept-input {
+        width:100%;
+    }
+  </style>
+
+<div id="add-new-department-dialog" class="ui-dialog" title="Add New Department"> 
+    <input id="new-dept-input" type="text"/>
+</div>
+
+<script type="text/javascript">
+    var ajax = "<?php echo site_url(). 'index.php/ajax/department_ajax/'; ?>";
+
+    $(document).ready(function() {
+
+        function addNewDepartment() {
+            
+            $("#add-new-department-dialog").dialog({
+                modal:true,
+                width:500,
+                buttons: {
+                    Add: function() {
+                        var new_dept = $("#new-dept-input").val();
+
+                        $.post(ajax + "addDepartment", {new_dept: new_dept}, function(response){
+                            location.reload();
+                        });
+
+                        $(this).dialog("close");
+                    },
+                    Cancel: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+        }
+
+        $(document).on("click", "#add-new-dept", function() {
+            addNewDepartment();
+        });
+
+        $(document).on("click", "#edit", function() {
+            alert("edit");
+        });
+
+        $(document).on("click", "#archieve", function() {
+            alert("archieve");
+        });
+
+        $(document).on("keydown", "#search", function() {
+            var search_key = $("#search").val();
+
+            $.post(ajax + "search_department", {key: search_key}, function(response) {
+                $("tbody").html("");
+                $("tbody").append(response);
+            });
+        });
+
+    });
+</script>
 <!-- CSS -->
 <!-- END CSS -->
     <div class="wrapper row-offcanvas row-offcanvas-left">
@@ -118,15 +189,55 @@
                                 <div class="box-header">
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
-                                    <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-xs-6"><div id="example1_length" class="dataTables_length"><label><select size="1" name="example1_length" aria-controls="example1"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> records per page</label></div></div><div class="col-xs-6"><div class="dataTables_filter" id="example1_filter"><label>Search: <input type="text" aria-controls="example1"></label></div></div></div><table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+                                    <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                                        <div class="row"><div class="col-xs-6"><div id="example1_length" class="dataTables_length">
+                                            <label><select size="1" name="example1_length" aria-controls="example1">
+                                                <option value="10" selected="selected">10</option><option value="25">25</option>
+                                                <option value="50">50</option><option value="100">100</option></select> records per page</label>
+                                            </div></div><div class="col-xs-6"><div class="dataTables_filter" id="example1_filter">
+                                            <label>Search: <input id="search" type="text" aria-controls="example1"></label>
+                                            <button id="add-new-dept">Add New Department</button>
+                                            </div></div></div>
+                                            <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+                                        
+
                                         <thead>
-                                            <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 232px;">Rendering engine</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 348px;">Browser</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 301px;">Platform(s)</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 200px;">Engine version</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 141px;">CSS grade</th></tr>
+                                            <tr role="row">
+                                                <th class="sorting_asc" role="columnheader" tabindex="0" 
+                                                aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" 
+                                                aria-label="Rendering engine: activate to sort column descending" 
+                                                style="width: 232px;">Department</th>
+                                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" 
+                                                rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" 
+                                                style="width: 348px;">Manager</th><th class="sorting" role="columnheader" 
+                                                tabindex="0" aria-controls="example1" rowspan="1" colspan="1" 
+                                                aria-label="Platform(s): activate to sort column ascending" 
+                                                style="width: 301px;">Employee</th><th class="sorting" role="columnheader" 
+                                                tabindex="0" aria-controls="example1" rowspan="1" colspan="1" 
+                                                aria-label="Engine version: activate to sort column ascending" 
+                                                style="width: 200px;">Action</th><!--<th class="sorting" 
+                                                role="columnheader" tabindex="0" aria-controls="example1" 
+                                                rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" 
+                                                style="width: 141px;">CSS grade</th></tr>-->
                                         </thead>
                                         
-                                        <tfoot>
+                                        <!--<tfoot>
                                             <tr><th rowspan="1" colspan="1">Rendering engine</th><th rowspan="1" colspan="1">Browser</th><th rowspan="1" colspan="1">Platform(s)</th><th rowspan="1" colspan="1">Engine version</th><th rowspan="1" colspan="1">CSS grade</th></tr>
-                                        </tfoot>
-                                    <tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd">
+                                        </tfoot> -->
+                                    <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                            <?php foreach($department_list as $value): ?>
+                                                <tr>
+                                                    <td><?php echo $value->department_name; ?></td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td>
+                                                        <a id="archieve" href="#"><img src="<?php echo site_url("assets/img/garbage.gif"); ?>"></a>
+                                                        <a id="edit" href="#"><img src="<?php echo site_url("assets/img/edit.gif"); ?>"></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                            <!--
+                                            <tr class="odd">
                                                 <td class=" sorting_1">Gecko</td>
                                                 <td class=" ">Firefox 1.0</td>
                                                 <td class=" ">Win 98+ / OSX.2+</td>
@@ -186,10 +297,12 @@
                                                 <td class=" ">Win 95+ / OSX.1+</td>
                                                 <td class=" ">1</td>
                                                 <td class=" ">A</td>
-                                            </tr></tbody></table><div class="row"><div class="col-xs-6"><div class="dataTables_info" id="example1_info">Showing 1 to 10 of 57 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_bootstrap"><ul class="pagination"><li class="prev disabled"><a href="#">← Previous</a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a></li><li class="next"><a href="#">Next → </a></li></ul></div></div></div></div>
+                                            </tr>
+                                            -->
+                                        </tbody></table><div class="row"><div class="col-xs-6"><div class="dataTables_info" id="example1_info">Showing 1 to 10 of 57 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_bootstrap"><ul class="pagination"><li class="prev disabled"><a href="#">← Previous</a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a></li><li class="next"><a href="#">Next → </a></li></ul></div></div></div></div>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer clearfix no-border">
-                                    <button class="btn btn-default pull-right" data-toggle="modal" data-target="#department-modal">
+                                    <button class="btn btn-default pull-right " data-toggle="modal" data-target="#department-modal">
                                       <i class="fa fa-sitemap"></i> Add Department
                                     </button>
                                 </div>

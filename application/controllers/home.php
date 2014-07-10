@@ -6,7 +6,11 @@ class Home extends Admin_Controller{
   }
   
   public function index(){
-    $this->load->view('home', $this->data);
+    $this->load->model('department_model');
+
+    $view_data['department_list'] = $this->department_model->getAllDepartment();
+
+    $this->load->view('department/list', $view_data);
   }
   
   public function modal(){
