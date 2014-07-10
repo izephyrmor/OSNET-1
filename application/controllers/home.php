@@ -6,6 +6,10 @@ class Home extends Admin_Controller{
   }
   
   public function index(){
+    $this->load->view("home");
+  }
+
+  public function render_department_list() {
     $this->load->model('department_model');
 
     $view_data['department_list'] = $this->department_model->getAllDepartment();
