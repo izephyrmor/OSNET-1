@@ -63,6 +63,18 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i>View Payslip</a></li>
                             </ul>
                         </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>Department</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo site_url(). 'index.php/home/render_department_list'; ?>"><i class="fa fa-angle-double-right"></i>Department List</a></li>
+                            </ul>
+                        </li>
+
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-users"></i>
