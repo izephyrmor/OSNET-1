@@ -210,7 +210,8 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-thumb-tack"></i> Add Announcement</h4>
                     </div>
-                    <form action="#" method="post">
+					<?php echo validation_errors(); ?>
+                    <?php echo form_open('index.php/home'); ?>
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="input-group">
@@ -223,7 +224,7 @@
                                     <span class="input-group-addon">
                                       Duration:
                                     </span>
-                                    <input type="text" class="form-control pull-right" id="announcement-duration"/>
+                                    <input type="text" name="announcement_duration" class="form-control pull-right" id="announcement-duration"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -236,9 +237,10 @@
 
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 
-                            <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-thumb-tack"></i> Save Announcement</button>
+                            <!--<button type="submit" class="btn btn-primary pull-left"><i class="fa fa-thumb-tack"></i> Save Announcement</button>-->
+							<?php echo form_submit('submit', 'Save Announcement', 'class="btn btn-primary pull-left"'); ?>
                         </div>
-                    </form>
+                    <?php echo form_close(); ?>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->

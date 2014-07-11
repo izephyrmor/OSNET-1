@@ -6,11 +6,16 @@ class Home extends Admin_Controller{
   }
   
   public function index(){
-    $this->load->model('department_model');
-
-    $view_data['department_list'] = $this->department_model->getAllDepartment();
-
-    $this->load->view('department/list', $view_data);
+    //$view_data['department_list'] = $this->department_model->getAllDepartment();
+	//$test = $this->announcement_m->add_new_announcement();
+	$rules = $this->announcement_m->announcement_rules;
+	$this->form_validation->set_rules($rules);
+	if ($this->form_validation->run() == TRUE){
+		$this->announcement_m->add_announcement();
+	}
+		
+		
+    $this->load->view('home', $this->data);
   }
   
   public function modal(){
