@@ -22,7 +22,10 @@ class Department_ajax extends CI_Controller {
         echo "<td>". $key->department_name ."</td>";
         echo "<td> </td>";
         echo "<td> </td>";
-        echo "<td> </td>";
+        echo  '<td>';
+          echo '<a id="archieve" href="#"><img src="'. site_url("assets/img/delete.gif"). '"></a>';
+          echo '<a id="edit" href="#"><img src="'. site_url("assets/img/edit.gif"). '"></a>';
+        echo '</td>';
       echo "</tr>";
     }
   }
