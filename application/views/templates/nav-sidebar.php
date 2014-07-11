@@ -6,10 +6,10 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo site_url('assets/img/face.png')?>" class="img-circle" alt="User Image" />
+                            <img src="<?php echo site_url('assets/img/avatar5.png')?>" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Eric</p>
+                            <p>Hello, Louise</p>
                         </div>
                     </div>
                     <!-- search form -->
@@ -36,7 +36,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i>My Profile</a></li>
+                                <li><a href="<?php echo site_url(). 'index.php/home/render_profile'; ?>"><i class="fa fa-angle-double-right"></i>My Profile</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i>View Payslip</a></li>
                             </ul>
                         </li>

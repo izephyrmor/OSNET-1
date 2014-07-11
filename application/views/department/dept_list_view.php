@@ -1,7 +1,7 @@
 <!-- Right side column. Contains the navbar and content of the page -->
 
-            <div id="add-new-department-dialog" class="ui-dialog" title="Add New Department"> 
-                <input id="new-dept-input" type="text"/>
+            <div id="add-new-department-dialog" class="modal-dialog" title="New Department"> 
+                <input class="form-control input-md" id="new-dept-input" type="text" placeholder="Create Department"/><br />
             </div>
 
             <script type="text/javascript">
@@ -13,7 +13,7 @@
                         
                         $("#add-new-department-dialog").dialog({
                             modal:true,
-                            width:500,
+                            width:300,
                             buttons: {
                                 Add: function() {
                                     var new_dept = $("#new-dept-input").val();
@@ -44,7 +44,7 @@
                         alert("archieve");
                     });
 
-                    $(document).on("keydown", "#search", function() {
+                    $(document).on("keydown keyup", "#search", function() {
                         var search_key = $("#search").val();
 
                         $.post(ajax + "search_department", {key: search_key}, function(response) {
@@ -84,19 +84,21 @@
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive">
                                     <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                                        <div class="row"><div class="col-xs-6"><div id="example1_length" class="dataTables_length">
-                                            <!--<label><select size="1" name="example1_length" aria-controls="example1">
-                                                <option value="10" selected="selected">10</option><option value="25">25</option>
-                                                <option value="50">50</option><option value="100">100</option></select> records per page</label>-->
-                                            </div></div><div class="col-xs-6"><div class="dataTables_filter" id="example1_filter">
-                                            <label>Search: <input id="search" type="text" aria-controls="example1">
-                                                <button class="btn btn-default" id="add-new-dept" data-toggle="modal" data-target="#department-modal">
+                                        <div class="row">                                      
+                                            <div class="col-xs-12">
+                                                <div class="dataTables_filter" id="example1_filter">
+                                            <label>
+                                                <button class="btn btn-primary" id="add-new-dept" data-toggle="modal" data-target="#department-modal">
                                                   <i class="fa fa-sitemap"></i> Add Department
                                                 </button>
                                             </label>
+
+                                            <label class="pull-right">Search:  <input id="search" type="text" aria-controls="example1"></label>
                                             <!--<button id="add-new-dept">Add New Department</button>-->
 
-                                            </div></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                             <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                                         
 
