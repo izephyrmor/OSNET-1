@@ -1,7 +1,3 @@
-.ui-dialog {
-    display:none;
-}
-
-#new-dept-input {
-    width:100%;
+.modal-dialog {
+  display:none;
 }

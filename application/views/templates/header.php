@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $meta_title; ?></title>
 
-    <!--<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/jquery_ui/css/redmond/jquery-ui-1.10.4.custom.css'); ?>">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
-
     <!-- Bootstrap -->
     <link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -34,10 +30,11 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo site_url('assets/js/AdminLTE/demo.js'); ?>" type="text/javascript"></script>
 
+    <!-- jQuery Dialog -->
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">-->
     <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/custom_css/os_style.css'); ?>">
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-            <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/jquery_ui/css/redmond/jquery-ui-1.10.4.custom.min.css'); ?>">
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
   </head>
   <body class="skin-blue">

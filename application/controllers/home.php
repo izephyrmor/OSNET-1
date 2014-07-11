@@ -12,7 +12,15 @@ class Home extends Admin_Controller{
   public function render_home() {
     $this->load->view("templates/header");
     $this->load->view("templates/nav-sidebar");
-    //$this->load->view("");
+    $this->load->view("templates/footer");
+  }
+
+  public function render_profile() {
+    $profile_view_data["title"] = "Profile";
+
+    $this->load->view("templates/header");
+    $this->load->view("templates/nav-sidebar");
+    $this->load->view("profile/profile_view", $profile_view_data);
     $this->load->view("templates/footer");
   }
 
