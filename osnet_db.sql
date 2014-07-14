@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2014 at 03:36 PM
+-- Generation Time: Jul 14, 2014 at 01:52 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `osnet`
+-- Database: `osnet2`
 --
 
 -- --------------------------------------------------------
@@ -31,8 +31,21 @@ CREATE TABLE IF NOT EXISTS `announcement` (
   `user_id` int(11) NOT NULL,
   `feature_id` int(11) NOT NULL,
   `feedback` text NOT NULL,
+  `announcement_title` varchar(100) NOT NULL,
+  `announcement_duration` varchar(50) NOT NULL,
+  `announcement_message` text NOT NULL,
   PRIMARY KEY (`announcement_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `announcement`
+--
+
+INSERT INTO `announcement` (`announcement_id`, `user_id`, `feature_id`, `feedback`, `announcement_title`, `announcement_duration`, `announcement_message`) VALUES
+(1, 0, 0, 'feedback', 'test', '07/13/2014 - 07/13/2014', 'dasdas'),
+(2, 0, 0, 'feedback', 'lknlfkdsnf', '07/13/2014 - 07/13/2014', 'sad.,ansldk asjdhkasd'),
+(3, 0, 0, 'feedback', 'sadkl', '07/13/2014 - 07/13/2014', ',asjhdlwbqwleblqw'),
+(4, 0, 0, 'feedback', 'dasldalih', '01/01/0000 - 01/01/0000', 'as,djas,dasndkask');
 
 -- --------------------------------------------------------
 
@@ -44,7 +57,15 @@ CREATE TABLE IF NOT EXISTS `department` (
   `department_id` int(11) NOT NULL AUTO_INCREMENT,
   `department_name` varchar(255) NOT NULL,
   PRIMARY KEY (`department_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`department_id`, `department_name`) VALUES
+(1, 'sada'),
+(2, 'sadasw');
 
 -- --------------------------------------------------------
 
