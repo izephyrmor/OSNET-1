@@ -36,7 +36,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url(). 'index.php/home/render_profile'; ?>"><i class="fa fa-angle-double-right"></i>My Profile</a></li>
+                                <li><a href="<?php echo base_url(); ?>home/render_profile"><i class="fa fa-angle-double-right"></i>My Profile</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i>View Payslip</a></li>
                             </ul>
                         </li>
@@ -48,7 +48,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url(). 'index.php/home/render_team_list'; ?>"><i class="fa fa-angle-double-right"></i>Team List</a></li>
+                                <li><a href="<?php echo base_url(); ?>home/render_team_list"><i class="fa fa-angle-double-right"></i>Team List</a></li>
                             </ul>
                         </li>
 
@@ -59,7 +59,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url(). 'index.php/home/render_department_list'; ?>"><i class="fa fa-angle-double-right"></i>Department List</a></li>
+                                <li><a href="<?php echo base_url(); ?>home/render_department_list"><i class="fa fa-angle-double-right"></i>Department List</a></li>
                             </ul>
                         </li>
 
@@ -110,7 +110,7 @@
                             </ul>
                         </li>
 						<li>
-                            <a href="<?php echo base_url(); ?>feedback">
+                            <a href="<?php echo base_url(); ?>home/feedback">
                                 <i class="fa fa-home"></i> <span>Feedback</span>
                             </a>
                         </li>
