@@ -56,8 +56,7 @@ class User_M extends MY_Model
 		$this->db->where('username', $username);
 		$query = $this->db->get();
 		
-		foreach($query->result as $q)
-			return $q->user_id;
+		return $query->result();
 		
 	}
 	
@@ -67,16 +66,20 @@ class User_M extends MY_Model
 		$this->db->where('feature_name', $feature_name);
 		$query = $this->db->get();
 		
-		foreach($query->result as $q)
-			return $q->feature_id;
+		return $query->result();
 	}
 	
 	function insert_feedback($data) {
-		$user_id = $this->get_user_id($data['username']);
-		$feature_id = $this->get_feature_id($data['feature_name']);
+		$result = $this->get_user_id($data['username']);
 		
-		echo $user_id, "<br>", $feature_id;
-		exit();
+		foreach($result as $r)
+			$user_id = $r->user_id;
+		
+		$result = $this->get_feature_id($data['feature_name']);
+
+		foreach($result as $r)
+			$feature_id = $r->feature_id;
+		
 		$newdata = array(
 			'user_id' => $user_id,
 			'feature_id' => $feature_id,

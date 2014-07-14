@@ -109,6 +109,11 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i>Infractions List</a></li>
                             </ul>
                         </li>
+						<li>
+                            <a href="<?php echo base_url(); ?>feedback">
+                                <i class="fa fa-home"></i> <span>Feedback</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
