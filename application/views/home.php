@@ -63,18 +63,6 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i>View Payslip</a></li>
                             </ul>
                         </li>
-
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                <span>Department</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url(). 'index.php/home/render_department_list'; ?>"><i class="fa fa-angle-double-right"></i>Department List</a></li>
-                            </ul>
-                        </li>
-
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-users"></i>
@@ -182,25 +170,25 @@
                                         </li>
                                         <li>
                                             <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
+                                            <a class="text" href="#">Welcome to OSnet sample announcement.</a>
                                         </li>
                                         <li>
                                             <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
+                                            <a class="text" href="#">Welcome to OSnet sample announcement.</a>
                                         </li>
                                         <li>
                                             <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
+                                            <a class="text" href="#">Welcome to OSnet sample announcement.</a>
                                         </li>
                                         <li>
                                             <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
+                                            <a class="text" href="#">Welcome to OSnet sample announcement.</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer clearfix no-border">
                                     <button class="btn btn-default pull-right" data-toggle="modal" data-target="#announcement-modal">
-                                      <i class="fa fa-plus"></i> Add Announcement
+                                      <i class="fa fa-plus"></i> Add Announcements
                                     </button>
                                 </div>
                             </div><!-- /.box -->
@@ -270,7 +258,7 @@
                                     <h4>Title</h4>
                                     <i class="duration">07/09/2014 - 07/09/2014</i>
                                     <div class="announcement">Hey Apple!</div>
-
+									
                             </div>
                         </div>
                         <div class="modal-footer clearfix">

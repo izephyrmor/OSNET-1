@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $meta_title; ?></title>
+
     <!-- Bootstrap -->
     <link href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -28,6 +29,13 @@
     <script src="<?php echo site_url('assets/js/AdminLTE/app.js'); ?>" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo site_url('assets/js/AdminLTE/demo.js'); ?>" type="text/javascript"></script>
+
+    <!-- jQuery Dialog -->
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">-->
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/custom_css/os_style.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/jquery_ui/css/redmond/jquery-ui-1.10.4.custom.min.css'); ?>">
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
   </head>
   <body class="skin-blue">
     <!-- header logo: style can be found in header.less -->
@@ -80,7 +88,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?php echo base_url();?>/home/logout" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
