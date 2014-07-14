@@ -35,6 +35,12 @@
           addNewTeam();
         });
 
+        $(document).on("keydown keyup", "#search", function() {
+          var search_key = $("#search").val();
+
+          //$.post();
+        });
+
       });
     </script>
 
