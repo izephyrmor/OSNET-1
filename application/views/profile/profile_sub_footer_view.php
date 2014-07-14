@@ -1,59 +1,4 @@
-<aside class="right-side">                
-
-  <section class="content-header">
-      <h1>
-        <?php if(isset($title)): ?>
-          <?php echo $title; ?>
-        <?php endif; ?>
-      </h1>
-      <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-      </ol>
-  </section>
-
-  <section class="content">
-                    
-    <div class="row-condensed">
-
-        <div class="row">
-        <div class="col-md-8">
-            <!-- TO DO List -->
-            <div class="box box-primary">
-                <div class="box-header">
-                </div><!-- /.box-header -->
-
-                <div class="box-body table-responsive">
-                    <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                        
-                    <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
-                        
-                      <div class="row-condensed">
-                          <div class="col-md-12">
-
-                              <ul class="nav nav-tabs" role="tablist">
-                                  <li class="active"><a href="#">Profile</a></li>
-                                  <li><a href="#">My Account</a></li>
-                              </ul>
-
-                              <div class="col-md-12">
-                                <img style="float:left; border-radius:155px; margin-top:5px;" src="<?php echo site_url('assets/img/avatar04.png'); ?>">
-                                <div style="float:left;">
-                                  <ul style="list-style-type:none;">
-                                    <li><h4><strong>Name: </strong></h4></li>
-                                    <li><h4><strong>Department: </strong></h4></li>
-                                    <li><h4><strong>Contact #: </strong></h4></li>
-                                    <li><h4><strong>Email: </strong></h4></li>
-                                    <li><h4><strong>Facebook: </strong></h4></li>
-                                    <li><h4><strong>Skype: </strong></h4></li>
-                                    <li><h4><strong>City: </strong></h4></li>
-                                    <li><h4><strong>Skill: </strong></h4></li>
-                                    <li><h4><strong>Start Date: </strong></h4></li>
-                                    <li><h4><strong>Tenure: </strong></h4></li>
-                                  </ul>
-                                </div>
-                              </div>
-
-                          </div><!-- /.col -->
+</div><!-- /.col -->
                       </div><!-- /.row -->  
 
                     </table>
@@ -81,6 +26,29 @@
                               <ul class="nav nav-tabs" role="tablist">
                                   <li class="active"><a href="#">Department People</a></li>
                               </ul>
+
+                              <div class="col-md-12">
+                                <?php
+                                  $people = array("Bulacito, Creza Jill G.", 
+                                    "Aquino, Virlyn S.", "Bermudez, Eric Vincent P.", 
+                                    "Caccam, Mark Kevin M.", "Calcena, Doris Jesusa D.", 
+                                    "Dacanay, Katherine K.");
+                                ?>
+
+                                <?php foreach($people as $key): ?>
+                                <a href="#"><?php echo $key ?></a>
+                                <?php endforeach; ?>
+
+                                <ul class="pagination">
+                                  <li><a href="#">&laquo;</a></li>
+                                  <li><a href="#">1</a></li>
+                                  <li><a href="#">2</a></li>
+                                  <li><a href="#">3</a></li>
+                                  <li><a href="#">4</a></li>
+                                  <li><a href="#">5</a></li>
+                                  <li><a href="#">&raquo;</a></li>
+                                </ul>
+                              </div>
 
                           </div><!-- /.col -->
                       </div><!-- /.row -->  
