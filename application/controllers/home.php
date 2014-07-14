@@ -38,7 +38,6 @@ class Home extends Admin_Controller{
     $this->load->view("profile/profile_sub_header_view", $sub_header_data);
     $this->load->view("profile/profile_content_view");
     $this->load->view("profile/profile_sub_footer_view");
-    //$this->load->view("profile/profile_view", $profile_view_data);
     $this->load->view("templates/footer");
   }
 
