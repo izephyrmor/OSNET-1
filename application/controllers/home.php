@@ -5,9 +5,11 @@ class Home extends Admin_Controller{
     parent::__construct();
   }
   
+  
+  
+  
   public function index(){
     $this->render_home();
-    
   }
 
   public function render_home() {

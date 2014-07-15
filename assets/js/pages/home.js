@@ -31,10 +31,6 @@ $(document).ready(function() {
 		var duration = $.trim( $('#announcement-duration').val());
 		var message = $.trim( $('#announcement_message').val());
 								
-		//if(message=="")
-		//alert(message.length);
-		//alert(message);
-		//alert(title);
 		var err = "";
 		if (!title) 			err += '<p>Title Required</p>';
 		if (!duration) 	err += '<p>Duration Required</p>';
@@ -53,6 +49,7 @@ $(document).ready(function() {
 		}
 
 	});
+	
 	
 	
 		

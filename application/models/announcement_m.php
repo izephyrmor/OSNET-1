@@ -30,6 +30,7 @@
 		}
 		
 		
+		
 		public function get_announcement($id = NULL){
 			$this->db->select('announcement_id, announcement_title, announcement_duration, announcement_message');
 			if($id !== NULL)
