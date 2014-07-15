@@ -14,7 +14,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content">
+                <section class="content"> 
                     
                     <!-- Announcement -->
                     <div class="row">
@@ -44,6 +44,12 @@
                                         </ul>
                                     </div>
                                 </div><!-- /.box-header -->
+								<?php
+									/*
+									Branch: JEFFREY-announcements_table_db_change_07/11/2014
+									Changes in:  div
+									*/
+									?>
                                 <div class="box-body">
                                     <ul class="announcement-list">
                                         <?php if($announcement):?>

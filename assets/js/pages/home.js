@@ -9,7 +9,11 @@ $(document).ready(function() {
     //Date range picker
     $('#announcement-duration').daterangepicker();
 	
-	
+	/*
+		Branch: JEFFREY-announcements_table_db_change_07/11/2014
+		Added:  click function announcement_list, save_announcement_butt
+		*/
+		
 
 	$('.announcement_list').click(function(){
 		var rowid = $(this).data('id');
@@ -24,7 +28,7 @@ $(document).ready(function() {
 	});
 	
 	
-	
+	 
 	$('#save_announcement_butt').click(function(){
 
 		var title = $.trim( $('#announcement_title').val());

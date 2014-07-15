@@ -2,16 +2,11 @@
 	if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	class Announcement_m extends CI_Model {
 		
-		/**
-		public function array_from_post($fields){
-			$data = array();
-			foreach ($fields as $field){
-				$data[$field] = $this->input->post($field);
-			}
-			return $data;
-		}
+		/*
+		Branch: JEFFREY-announcements_table_db_change_07/11/2014
+		Added:  whole announcement_m.php
 		*/
-	 
+		
 		public function save_announcement($title, $duration, $message){
 			
 			//if($id == NULL){
@@ -28,7 +23,7 @@
 			//}
 			
 		}
-		
+		 
 		
 		
 		public function get_announcement($id = NULL){

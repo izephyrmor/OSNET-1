@@ -7,12 +7,17 @@ class Home extends Admin_Controller{
   
   
   
-  
+   
   public function index(){
     $this->render_home();
   }
 
   public function render_home() {
+	/*
+		Branch: JEFFREY-announcements_table_db_change_07/11/2014
+		Added:  data['announcement'], view('home', $this->data)
+		*/
+		
    $this->data['announcement'] = $this->announcement_m->get_announcement(); 
     $this->load->view("templates/header");
     $this->load->view("templates/nav-sidebar");
