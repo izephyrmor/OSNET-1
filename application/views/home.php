@@ -47,7 +47,7 @@
 								<?php
 									/*
 									Branch: JEFFREY-announcements_table_db_change_07/11/2014
-									Changes in:  div  
+									Changes in:  div   
 									*/
 									?>
                                 <div class="box-body">
