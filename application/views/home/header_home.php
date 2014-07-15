@@ -18,4 +18,4 @@
 <script src="<?php echo site_url('assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript'); ?>"></script>
 <!-- home page script -->
 <script src="<?php echo site_url('assets/js/pages/home.js');?>"></script>
-<!-- END SCRIPTS -->
+<!-- END SCRIPTS -->  
