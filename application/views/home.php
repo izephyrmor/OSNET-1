@@ -21,6 +21,8 @@
 <script src="<?php echo site_url('assets/js/pages/home.js');?>"></script>
 <!-- END SCRIPTS -->
 
+
+
     <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">                
@@ -131,7 +133,7 @@
                     
                     <!-- Announcement -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <!-- Calendar Box/Container -->
                             <div class="box box-primary">                                
                                 <div class="box-body no-padding">
@@ -141,7 +143,7 @@
                             </div><!-- /. box -->
                             <!-- End Calendar Box/Container -->
                         </div><!-- /.col -->
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <!-- TO DO List -->
                             <div class="box box-primary">
                                 <div class="box-header">
@@ -159,31 +161,18 @@
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
                                     <ul class="announcement-list">
-                                        <li>
-                                            <!-- todo text -->
-                                            <!--example static item-->
-                                            <a class="text" href="#" data-toggle="modal" data-target="#announcement-item-modal">Test announcement!</a>
-                                        </li>
-                                        <li>
-                                            <!-- todo text -->
-                                            <a class="text" href="#">Title here.</a>
-                                        </li>
-                                        <li>
-                                            <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
-                                        </li>
-                                        <li>
-                                            <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
-                                        </li>
-                                        <li>
-                                            <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
-                                        </li>
-                                        <li>
-                                            <!-- todo text -->
-                                            <a class="text" href="#">Welsome to OSnet sample announcement.</a>
-                                        </li>
+                                        <?php if($announcement):?>
+											<?php foreach($announcement as $ann => $values):?>
+												<li>
+													<a class="text announcement_list" href="" data-toggle="modal" data-id="<?php echo $announcement[$ann]['announcement_id'];?>" data-target="#announcement-item-modal">
+														<?php print $announcement[$ann]['announcement_title'];?>
+													</a>
+													<?php print $announcement[$ann]['announcement_duration'];?>
+												</li>
+											<?php endforeach ?>
+										<?php else:?>
+											<li>No New Announcement</li>
+										<?php endif?>
                                     </ul>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer clearfix no-border">
@@ -202,6 +191,10 @@
             
         </div><!-- ./wrapper -->
         
+		<script>
+			var site_url = '<?php echo site_url();?>';
+		</script>
+		
         <!-- ADD ANNOUNCEMENT MODAL -->
         <div class="modal fade" id="announcement-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -210,13 +203,19 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-thumb-tack"></i> Add Announcement</h4>
                     </div>
-					<?php echo validation_errors(); ?>
-                    <?php echo form_open('index.php/home'); ?>
+					 
+					
+					
+                    
                         <div class="modal-body">
+							<div id="add_announcement_errors" class="text-danger"></div>
+						
+							<?php echo form_open(); ?>
+							
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon">Title:</span>
-                                    <input name="announcement_title" type="text" class="form-control" placeholder="Title">
+                                    <input name="announcement_title" id="announcement_title" type="text" class="form-control" placeholder="Title">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -233,18 +232,20 @@
                                 </div>
                             </div>
                         </div>
+						<?php echo form_close(); ?>
                         <div class="modal-footer clearfix">
-
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
-
-                            <!--<button type="submit" class="btn btn-primary pull-left"><i class="fa fa-thumb-tack"></i> Save Announcement</button>-->
-							<?php echo form_submit('submit', 'Save Announcement', 'class="btn btn-primary pull-left"'); ?>
+                            <button id="save_announcement_butt" class="btn btn-primary pull-left"><i class="fa fa-thumb-tack"></i> Save Announcement</button>
+							<?php //echo form_submit('submit', 'Save Announcement', 'class="btn btn-primary pull-left"'); ?>
                         </div>
-                    <?php echo form_close(); ?>
+                    
+					
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        
+		
+		
+		
         <!-- VIEW ANNOUNCEMENT MODAL -->
         <div class="modal fade" id="announcement-item-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -255,12 +256,7 @@
                     </div>
                     <form action="#" method="post">
                         <div class="modal-body">
-                            <div class="form-group">
-
-                                    <h4>Title</h4>
-                                    <i class="duration">07/09/2014 - 07/09/2014</i>
-                                    <div class="announcement">Hey Apple!</div>
-
+                            <div class="form-group" id="ann_div">
                             </div>
                         </div>
                         <div class="modal-footer clearfix">
@@ -274,4 +270,6 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
+		
+		
 <?php $this->load->view('templates/footer'); ?>
