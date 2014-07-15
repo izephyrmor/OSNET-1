@@ -6,6 +6,8 @@
 	<form method="post" accept-charset="utf-8" action="<?php echo site_url(); ?>home/login_validation"  class="login-form col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" />
 		<h1></h1>
 		
+		<!-- Branch: MONIQUE-user_login_07/10/2014 -->
+		
 		<?php if(isset($login_error_message)): ?>
 			<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
