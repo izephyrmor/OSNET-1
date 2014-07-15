@@ -4,7 +4,7 @@ class Announcement_ajax extends CI_Controller {
 
 	/*
 		Branch: JEFFREY-announcements_table_db_change_07/11/2014
-		Added:  whole announcement_ajax.php   
+		Added:  whole announcement_ajax.php    
 		*/
 		
 	public function view() {

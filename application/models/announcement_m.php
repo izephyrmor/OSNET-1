@@ -2,7 +2,7 @@
 	if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	class Announcement_m extends CI_Model {
 		
-		/*   
+		/*    
 		Branch: JEFFREY-announcements_table_db_change_07/11/2014
 		Added:  whole announcement_m.php
 		*/

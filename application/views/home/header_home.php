@@ -8,7 +8,7 @@
 <!-- END CSS -->
 
 <!-- SCRIPTS -->
-<!-- I did this like this because I wanted to. LOL - ERIC --> 
+<!-- I did this like this because I wanted to. LOL - ERIC -->  
 <!-- fullCalendar -->
 <script src="<?php echo site_url('assets/js/plugins/fullcalendar/fullcalendar.min.js');?>" type="text/javascript"></script>
 <script src="<?php echo site_url('assets/js/plugins/fullcalendar/gcal.js');?>" type="text/javascript"></script>
