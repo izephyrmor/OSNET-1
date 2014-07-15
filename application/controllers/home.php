@@ -39,9 +39,19 @@ class Home extends Admin_Controller {
 			$this->load->view('user/login', $data);
 		}
 		else {
+		
+			foreach($result as $r)
+				$user_id = $r->user_id;
+				
+			$result = $this->user_m->get_user_role($user_id);
+			
+			foreach($result as $r)
+				$usertype = $r->usertype;
+			
 			$newdata = array(
 				'username' => $username,
-				'logged_in' => 1
+				'logged_in' => 1,
+				'usertype' => $usertype
 			);
 			
 			$this->session->set_userdata($newdata);
@@ -50,8 +60,8 @@ class Home extends Admin_Controller {
 	}
 	
 	/*
-		BRANCH: SA FEEDBACK
-	
+		BRANCH: SA FEEDBACK (sa regular user)
+		Created method: feedback 
 	*/
 	
 	public function feedback() {
@@ -66,6 +76,29 @@ class Home extends Admin_Controller {
 			$this->load->view("templates/footer");
 		}
 	}
+	
+	
+	/*
+		BRANCH: SA FEEDBACK (sa superadmin)
+		Created method: feedback 
+	*/ 
+	
+	public function feedback_superadmin() {
+		if($this->session->userdata('logged_in') == 0)
+			redirect('home/login');
+		else {
+			if($this->session->userdata('usertype') == 'superadmin') {
+				$data['feedback'] = $this->user_m->get_feedback();
+				
+				$this->load->view("templates/header");
+				$this->load->view("templates/nav-sidebar");
+				$this->load->view('user/feedback_superadmin', $data);
+				$this->load->view("templates/footer");
+			}
+			else echo "ERRER MESSAGE GOES HERE";
+		}
+	}
+	
 	
 	public function create_feedback() {
 		$data['username'] = $this->input->post('username');
