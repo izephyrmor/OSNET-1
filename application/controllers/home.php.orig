@@ -1,0 +1,111 @@
+<?php
+<<<<<<< HEAD
+class Home extends Admin_Controller{
+  
+  public function __construct(){
+    parent::__construct();
+  }
+  
+  public function index(){
+    $this->render_home();
+    
+  }
+
+  public function render_home() {
+   $this->data['announcement'] = $this->announcement_m->get_announcement(); 
+    $this->load->view("templates/header");
+    $this->load->view("templates/nav-sidebar");
+   
+   $this->load->view('home', $this->data);
+
+    $this->load->view("templates/footer");
+  }
+
+  public function render_team_list() {
+    $this->load->model("team_model");
+
+    $team_list_view_data["title"] = "Team List";
+    $team_list_view_data["team_list"] = $this->team_model->getAllTeam();
+
+    $this->load->view("templates/header");
+    $this->load->view("templates/nav-sidebar");
+    $this->load->view("team/team_list_view", $team_list_view_data);
+    $this->load->view("templates/footer");
+  }
+
+  public function render_department_list() {
+
+    $data['title'] = "Department List";
+    
+    $this->load->view("templates/header");
+    $this->load->view("templates/nav-sidebar");
+    $this->load->view("department/dept_list_view", $data);
+    $this->load->view("templates/footer");
+  }
+  
+  public function modal(){
+    $this->load->view('_layout_modal', $this->data);
+  }
+=======
+class Home extends Admin_Controller {
+>>>>>>> a3fc32130a681e3c2e4a376b4839f19fa0976160
+  
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('user_m');
+		$this->load->library('session');
+	}
+	
+	/*
+		Branch: MONIQUE-user_login_07/10/2014
+		Created methods: index, login, login_validation, logout, home_page and sess_destroy
+	*/
+	
+	
+	public function index() {	
+		if($this->session->userdata('logged_in') == 0)
+			redirect('home/login');
+		else redirect('home/home_page');
+	}
+	
+	public function login(){
+		if($this->session->userdata('logged_in') == 1)
+			redirect('home/home_page');			
+        else $this->load->view('user/login');
+    }
+	
+	public function login_validation() {
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		
+		$result = $this->user_m->user_exists($username, md5($password));
+		
+		if(!$result) {
+				
+			$data['login_error_message'] = "Invalid username or password,<br> please log in again.";
+			$this->session->set_userdata('logged_in', 0);
+			
+			$this->load->view('user/login', $data);
+		}
+		else {
+			$this->session->set_userdata('logged_in', 1);
+			redirect('home/home_page');
+		}
+	}
+	
+	public function logout() {
+		$this->sess_destroy();
+	}
+	
+	public function home_page() { 
+		$this->load->view('home');
+	}
+	
+	public function modal() {
+		$this->load->view('_layout_modal');
+	}
+	
+	private function sess_destroy() {
+		$this->session->sess_destroy();
+	}
+}

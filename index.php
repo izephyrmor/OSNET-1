@@ -24,7 +24,7 @@ date_default_timezone_set('Asia/Manila');
  /*var_dump($root);*/
  
  switch($root){
-  case 'C:\Ampps\www\osnet-':
+  case 'C:\xampp\htdocs\OSNET-1':
         define('ENVIRONMENT', 'development');
         break;
   default:
