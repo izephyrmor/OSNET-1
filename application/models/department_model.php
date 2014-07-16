@@ -3,9 +3,7 @@
 
     public function addNewOSDepartment($new_dept) {
       $new_department = $this->db->escape_str($new_dept);
-
-      echo $new_dept;
-
+      
       $query_string = 
         "INSERT INTO department (department_name)
         VALUES ('$new_department')";
