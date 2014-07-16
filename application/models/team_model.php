@@ -10,9 +10,4 @@ class Team_model extends CI_Model {
 
     return $result->result();
   }
-
-  /*
-  <?php foreach($team_list as $key): ?>
-                                    <td><?php echo $key->team_name; ?></td>
-                                  <?php endforeach; ?>*/
 }
