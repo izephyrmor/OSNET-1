@@ -1,11 +1,15 @@
 <style type="text/css">
   .employee-form-field {
     margin-bottom:5px;
-    width:450px;
+    width:650px;
   }
 
   span.input-group-addon {
     width:180px;
+  }
+
+  input, textarea {
+    text-align:center;
   }
 
 </style>
@@ -295,6 +299,8 @@
       });
     }
 
+    //$("select").selectmenu();
+
     $(document).on("keyup keydown", "#first_name", function() {
       fName = $("#first_name").val();
 
@@ -337,7 +343,7 @@
     $(document).on("click", "#add-new-employee", function() {
       $("#add-new-employee-dialog").dialog({
         modal:true,
-        width:520,
+        width:720,
         height:500,
         resizable:false,
         buttons: {

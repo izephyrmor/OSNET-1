@@ -1,7 +1,9 @@
     <div id="add-new-department-dialog" class="modal-dialog" title="New Team"> 
       Department
       <select class="form-control input-md">
-
+        <?php foreach($department_list as $department): ?>
+          <option><?php echo $department->department_name; ?></option>
+        <?php endforeach; ?>
       </select><br />
 
       Team Leader

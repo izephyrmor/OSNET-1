@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Employee_model extends CI_Model {
-
+  
   public function get_employee_by_department($employee, $department) {
     $employee = $this->db->escape_str($employee);
     $department = $this->db->escape_str($department);

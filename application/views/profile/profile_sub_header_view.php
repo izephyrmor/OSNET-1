@@ -32,7 +32,7 @@
 
                               <ul class="nav nav-tabs" role="tablist">
                                   <li class="<?php if(isset($profile_active)) {echo $profile_active;} ?>">
-                                    <a href="<?php echo site_url(). 'index.php/home/render_profile'; ?>">Profile</a></li>
+                                    <a href="<?php echo site_url(). 'index.php/profile/render_profile'; ?>">Profile</a></li>
                                   <li class="<?php if(isset($my_account_active)) {echo $my_account_active;} ?>">
-                                    <a href="<?php echo site_url(). 'index.php/home/render_profile_my_account'; ?>">My Account</a></li>
+                                    <a href="<?php echo site_url(). 'index.php/profile/render_profile_my_account'; ?>">My Account</a></li>
                               </ul>
