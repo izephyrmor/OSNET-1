@@ -184,7 +184,6 @@
 
       <div class="input-group employee-form-field">
         <span class="input-group-addon"><strong>Department</strong></span>
-        <!--<input type="text" class="form-control" id="" placeholder=""/>-->
         <select id="department" class="form-control">
           <?php foreach($department_list as $key): ?>
             <option><?php echo $key->department_name; ?></option>
@@ -232,36 +231,6 @@
       </div>
 
     </fieldset>
-
-      <!-- 
-
-      ALTER TABLE `user_information`  ADD `last_name` VARCHAR(255) NOT NULL  AFTER `role_id`,  
-      ADD `first_name` VARCHAR(255) NOT NULL  AFTER `last_name`,  ADD `middle_name` VARCHAR(255) 
-      NOT NULL  AFTER `first_name`,  ADD `suffix` VARCHAR(255) NOT NULL  AFTER `middle_name`,  
-      ADD `registered_address` TEXT NOT NULL  AFTER `suffix`,  ADD `zip_code` VARCHAR(50) 
-      NOT NULL  AFTER `registered_address`,  ADD `birth_date` DATETIME NOT NULL  AFTER `zip_code`,  
-      ADD `gender` VARCHAR(50) NOT NULL  AFTER `birth_date`,  ADD `marital_status` VARCHAR(50) 
-      NOT NULL  AFTER `gender`,  ADD `tax_code` VARCHAR(255) NOT NULL  AFTER `marital_status`,  
-      ADD `sss` VARCHAR(100) NOT NULL  AFTER `tax_code`,  ADD `phic` VARCHAR(50) NOT NULL  AFTER `sss`,  
-      ADD `tin` VARCHAR(50) NOT NULL  AFTER `phic`,  ADD `hdmf` VARCHAR(50) NOT NULL  AFTER `tin`,  
-      ADD `spouse_last_name` VARCHAR(255) NOT NULL  AFTER `hdmf`,  ADD `spouse_first_name` VARCHAR(255) 
-      NOT NULL  AFTER `spouse_last_name`,  ADD `spouse_middle_name` VARCHAR(255) NOT NULL  
-      AFTER `spouse_first_name`,  ADD `spouse_suffix` VARCHAR(255) NOT NULL  AFTER `spouse_middle_name`,  
-      ADD `previous_employer` VARCHAR(255) NOT NULL  AFTER `spouse_suffix`,  ADD `date_ended` DATETIME 
-      NOT NULL  AFTER `previous_employer`,  ADD `address` TEXT NOT NULL  AFTER `date_ended`,  
-      ADD `employment_number` VARCHAR(25) NOT NULL  AFTER `address`,  ADD `date_started` DATETIME NOT NULL  
-      AFTER `employment_number`,  ADD `employment_type` VARCHAR(255) NOT NULL  AFTER `date_started`,  
-      ADD `contract_period` VARCHAR(155) NOT NULL  AFTER `employment_type`,  ADD `email` VARCHAR(255) 
-      NOT NULL  AFTER `contract_period`,  ADD `facebook_url` VARCHAR(455) NOT NULL  AFTER `email`,  
-      ADD `branch_site` VARCHAR(255) NOT NULL  AFTER `facebook_url`,  ADD `department` VARCHAR(155) 
-      NOT NULL  AFTER `branch_site`,  ADD `immediate_superior` VARCHAR(255) NOT NULL  AFTER `department`,  
-      ADD `position` VARCHAR(255) NOT NULL  AFTER `immediate_superior`,  ADD `salary_type` VARCHAR(155) 
-      NOT NULL  AFTER `position`,  ADD `payreg_names` VARCHAR(255) NOT NULL  AFTER `salary_type`,  
-      ADD `bank_account_number` VARCHAR(255) NOT NULL  AFTER `payreg_names`,  ADD `status` VARCHAR(55) 
-      NOT NULL  AFTER `bank_account_number`,  ADD `password` VARCHAR(40) NOT NULL  AFTER `status`;
-
-      -->
-    
   </div>
 </div>
 
@@ -293,8 +262,16 @@
       //console.log(person + " / " + department);
 
       $.post(base_path + "ajax_employee_search_by_department", {employee: employee, department: department}, function(response) {
+
         $("#employee-table").html("");
         $("#employee-table").append(response);
+
+        $("tr").fadeIn(3000, function() {
+          $(this).fadeIn(100);
+        });
+
+        //alert("wth");
+
         //console.log(response);
       });
     }
@@ -328,10 +305,10 @@
       performSearch();
     });
 
-    $(document).on("click", "#edit", function() {
+    /*$(document).on("click", "#edit", function() {
       var user_id = $(this).prop("class");
       alert(user_id);
-    });
+    }); */
 
     // Instantiate Datepickers
     $(document).ready(function() {
@@ -361,7 +338,7 @@
               $(":input").each(function() {
                 values[$(this).prop("id")] = $(this).val();
               });
-              alert(JSON.stringify(values, null, 4));
+              //alert(JSON.stringify(values, null, 4));
 
               $.post(base_path + "ajax_add_new_employee", {profile: JSON.stringify(values, null, 4)}, function(response) {
               });
@@ -371,12 +348,6 @@
             } else {
               
             }
-            /*
-            var arr = new Array();
-            $(":input").each(function() {
-              arr.push($(this).val());
-            });
-            alert(arr); */
           },
           Cancel: function() {
             $(this).dialog("close");
@@ -466,7 +437,7 @@
                                             <td><?php echo $value->department; ?></td>
                                             <td><?php echo $value->email; ?></td>
                                             <td>
-                                                <a id="edit" class="<?php echo $value->user_id; ?>" href="#"><img src="<?php echo site_url("assets/img/edit.gif"); ?>"></a>
+                                                <a id="edit" class="<?php echo $value->user_id; ?>" href="<?php echo site_url("employee/render_edit_employee_profile?id=$value->user_id"); ?>"><img src="<?php echo site_url("assets/img/edit.gif"); ?>"></a>
                                                 <a id="archieve" class="<?php echo $value->user_id; ?>" href="#"><img src="<?php echo site_url("assets/img/delete.gif"); ?>"></a>
                                             </td>
                                         </tr>

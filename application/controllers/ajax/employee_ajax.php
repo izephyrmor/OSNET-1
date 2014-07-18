@@ -18,7 +18,7 @@ class Employee_ajax extends CI_Controller {
         echo "<td>". $result->department ."</td>";
         echo "<td>". $result->email ."</td>";
         echo "<td>";
-          echo "<a id='edit' class=". $result->user_id ." href='#'><img src=". site_url("assets/img/edit.gif") ."></a>";
+          echo "<a id='edit' class=". $result->user_id ." href=". site_url("employee/render_edit_employee_profile?id=" . $result->user_id) ."><img src=". site_url("assets/img/edit.gif") ."></a>";
           echo "<a id='archieve' class=". $result->user_id ." href='#'><img src=". site_url("assets/img/delete.gif") ."></a>";
         echo "</td>";
       echo "</tr>";

@@ -15,6 +15,7 @@ class Department extends Admin_Controller{
       $view_data['department_list'] = $this->department_model->getAllDepartment();
 
       $this->load->view("templates/header");
+      $this->load->view("templates/jquery-ui-header");
       $this->load->view("templates/nav-sidebar");
       $this->load->view("department/dept_list_view", $view_data);
       $this->load->view("templates/footer");

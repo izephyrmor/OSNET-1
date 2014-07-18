@@ -19,6 +19,7 @@ class Team extends Admin_Controller {
         $team_list_view_data["department_list"] = $this->department_model->getAllDepartment();
 
         $this->load->view("templates/header");
+        $this->load->view("templates/jquery-ui-header");
         $this->load->view("templates/nav-sidebar");
         $this->load->view("team/team_list_view", $team_list_view_data);
         $this->load->view("templates/footer");
