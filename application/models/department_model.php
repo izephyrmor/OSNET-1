@@ -1,6 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
   class Department_model extends CI_Model {
 
+    public function getDepartmentIdByName($department) {
+      $dept = $this->db->escape_str($department);
+
+      $query = 
+        "SELECT department_id
+        FROM department
+        WHERE department_name='$department'";
+
+      $result = $this->db->query($query);
+
+      return $result->row()->department_id;
+    }
+
     public function addNewOSDepartment($new_dept) {
       $new_department = $this->db->escape_str($new_dept);
       

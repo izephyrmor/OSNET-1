@@ -39,7 +39,8 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="<?php echo base_url(); ?>team/render_team_list"><i class="fa fa-angle-double-right"></i>Team List</a></li>
-                                <li><a href="<?php //echo base_url(); ?>team/render_team_list"><i class="fa fa-angle-double-right"></i>Assign Team Leader</a></li>
+                                <li><a href="<?php echo base_url(); ?>team/render_team_list"><i class="fa fa-angle-double-right"></i>Assign Team Member</a></li>
+                                <li><a href="<?php echo base_url(); ?>team/render_team_list"><i class="fa fa-angle-double-right"></i>Assign Team Leader</a></li>
                             </ul>
                         </li>
 

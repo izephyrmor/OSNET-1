@@ -18,9 +18,11 @@
                                 Add: function() {
                                     var new_dept = $("#new-dept-input").val();
 
-                                    $.post(ajax + "addDepartment", {new_dept: new_dept}, function(response){
+                                    if (new_dept.length >= 10) {
+                                      $.post(ajax + "addDepartment", {new_dept: new_dept}, function(response){
                                         location.reload();
-                                    });
+                                      });
+                                    }
 
                                     $(this).dialog("close");
                                 },

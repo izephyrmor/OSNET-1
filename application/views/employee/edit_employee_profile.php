@@ -1,6 +1,6 @@
 <style type="text/css">
   input, textarea {
-    margin-bottom:10px;
+    margin-bottom:20px;
   }
 
   h4 {
@@ -56,11 +56,18 @@
                                     </label>
 
                                     <label class="pull-right">
+                                      
                                     </label>
 
                                     <!--<div class="row">
                                       <div class="col-md-12"><h3>Personal Info</h3></div>
                                     </div> -->
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <button class="btn btn-danger">Update Profile</button>
+                                      </div>
+                                    </div>
 
                                     <div class="row">
                                       <?php $profile = $employee_profile[0]; ?>
@@ -170,6 +177,12 @@
                                         </select>
                                       </div>  
                                       <div class="col-md-6"><h4><span class="label label-primary">Change Password</span></h4><input value="<?php echo $profile->password; ?>" class="form-control" id="" autocomplete="off"/></div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <button class="btn btn-danger">Update Profile</button>
+                                      </div>
                                     </div>
 
                                     <?php
