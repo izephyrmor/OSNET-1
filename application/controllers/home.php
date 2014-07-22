@@ -50,6 +50,7 @@ class Home extends Admin_Controller {
 			
 			$newdata = array(
 				'username' => $username,
+				'user_id' => $this->user_m->fetch_user_id_by_username($username),
 				'logged_in' => 1,
 				'usertype' => $usertype
 			);

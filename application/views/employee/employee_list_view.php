@@ -259,24 +259,11 @@
       var department = $(".department-type").val();
       var employee = $(".search").val();
 
-      //console.log(person + " / " + department);
-
       $.post(base_path + "ajax_employee_search_by_department", {employee: employee, department: department}, function(response) {
-
         $("#employee-table").html("");
         $("#employee-table").append(response);
-
-        $("tr").fadeIn(3000, function() {
-          $(this).fadeIn(100);
-        });
-
-        //alert("wth");
-
-        //console.log(response);
       });
     }
-
-    //$("select").selectmenu();
 
     $(document).on("keyup keydown", "#first_name", function() {
       fName = $("#first_name").val();
@@ -341,9 +328,12 @@
               //alert(JSON.stringify(values, null, 4));
 
               $.post(base_path + "ajax_add_new_employee", {profile: JSON.stringify(values, null, 4)}, function(response) {
-              });
+                //alert(response);
+              })
+                .done(function(data) {
+                  $(this).dialog("close");
+                });
 
-              $(this).dialog("close");
               popUpDialog();
             } else {
               

@@ -105,6 +105,15 @@ class User_M extends MY_Model
 		return $query->result();
 		
 	}
+
+	function fetch_user_id_by_username($username) {
+		$this->db->select('user_id');
+		$this->db->from("user_login");
+		$this->db->where("username", $username);
+		$query = $this->db->get();
+
+		return $query->row()->user_id;
+	}
 	
 	function get_feature_id($feature_name) {
 		$this->db->select('feature_id');

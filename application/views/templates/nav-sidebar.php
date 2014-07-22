@@ -63,8 +63,8 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="<?php echo base_url(); ?>employee/render_employee_list"><i class="fa fa-angle-double-right"></i>Employee List</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i>Add Employee</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i>Edit Employee</a></li>
+                                <!--<li><a href="#"><i class="fa fa-angle-double-right"></i>Add Employee</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i>Edit Employee</a></li> -->
                             </ul>
                         </li>
                         <li class="treeview">

@@ -48,13 +48,65 @@ class Employee_model extends CI_Model {
     return $result->result();
   }
 
+  public function update_employee_profile(array $updated_employee_profile, $profile_id) {
+    $secure_data = array();
+
+    foreach($updated_employee_profile as $key => $value) {
+      $secure_data[$key] = $this->db->escape_str($value);
+    }
+
+    $this->db->update("user_information", $updated_employee_profile, array("user_id" => $profile_id));
+  }
+
+  private function _createEmployeeLoginAccount() {
+    $profile = $this->_getLatestEmployeeProfile();
+    $profile_row = $profile[0];
+
+    $data = array(
+      "user_id" => $this->_getLatestEmployeeId(),
+      "username" => strtolower($profile_row->first_name[0]). strtolower($profile_row->last_name),
+      "password" => md5("1234")
+    );
+
+    $this->db->insert('user_login', $data);
+  }
+
+  private function _getLatestEmployeeProfile() {
+    $query = 
+      "SELECT *
+      FROM user_information
+      ORDER BY user_id
+      DESC";
+
+    $result = $this->db->query($query);
+
+    return $result->result();
+  }
+
+  private function _getLatestEmployeeId() {
+    $query = 
+      "SELECT user_id
+      FROM user_information
+      ORDER BY user_id
+      DESC
+      LIMIT 1";
+
+    $result = $this->db->query($query);
+
+    return $result->row()->user_id;
+  }
+
   public function addNewEmployee(array $employee_information) {
-    $si = array();
+    //$si = array();
 
     foreach($employee_information as $key => $value) {
       $si[$key] = $this->db->escape_str($value);
     }
 
+    // Create Employee Profile
     $this->db->insert("user_information", $si);
+
+    // Create Employee Login Account for the newly created profile
+    $this->_createEmployeeLoginAccount();
   }
 }

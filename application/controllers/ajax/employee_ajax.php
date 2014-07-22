@@ -24,6 +24,21 @@ class Employee_ajax extends CI_Controller {
       echo "</tr>";
     }
   }
+
+  public function ajax_update_employee_profile() {
+    $this->load->model("employee_model");
+
+    $profile_id = $this->input->post("employee_id");
+    $updated_profile = $this->input->post("updated_profile");
+
+    $profile_data = json_decode($updated_profile, true);
+
+    unset($profile_data["update-profile"]);
+    unset($profile_data[""]);
+
+    //print_r($profile_data);
+    $this->employee_model->update_employee_profile($profile_data, $profile_id);
+  }
   
   public function ajax_add_new_employee() {
     $this->load->model("employee_model");
@@ -36,8 +51,6 @@ class Employee_ajax extends CI_Controller {
     unset($profile_data[""]);
     unset($profile_data["search"]);
 
-    $test = array("one" => 1, "two" => 2);
-
-    $this->employee_model->addNewEmployee($profile_data);
+    echo $this->employee_model->addNewEmployee($profile_data);
   }
 }
